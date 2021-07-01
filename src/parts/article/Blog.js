@@ -8,7 +8,9 @@ import IconDate from "assets/images/icons/icon_cities.svg";
 import SkeletonList from "components/Skeleton/SkeletonList";
 
 export default function Blog({ data, loading }) {
-  return data && data.length && !loading ? data.map((article, idx) => (
+  const looping = window.location.pathname !== '/' ? '4,8' : '0,4';
+
+  return data && data.length && !loading ? data.slice(parseInt(looping)).map((article, idx) => (
     <section className="container">
       <div className="container-grid sm">
         <Fade>

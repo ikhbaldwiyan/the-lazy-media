@@ -61,6 +61,7 @@ header {
   width: 100%;
   position: relative;
   margin-bottom: 50px;
+  background-color: $primary;
 
   .navbar {
     height: 80px;
@@ -69,18 +70,19 @@ header {
       li.nav-item {
         &.active {
           a.nav-link {
-            color: $primary;
+            color: $white;
             font-weight: 500;
           }
         }
         a {
           &.nav-link {
             letter-spacing: 1px;
-            color: $gray-900;
+            color: $gray-300;
             padding-left: 1rem;
             padding-right: 1rem;
             &:hover {
-              text-decoration: underline;
+              text-decoration: none;
+              color: $gray-200;
             }
           }
         }
@@ -119,7 +121,7 @@ section {
   .tag-article {
     z-index: 3;
     font-size: 0.875rem;
-    background-color: $gray-900;
+    background-color: $primary;
     padding: 0.25rem 1.5rem;
     position: absolute;
     top: 20; right:20;
@@ -227,25 +229,28 @@ section {
 }
 
 footer {
-  border-top: 1px solid $gray-200;
+  border-top: 1px solid $gray-300;
   padding-top: 50px;
+  background-color: $primary;
 
   .brand-tagline {
-    color: $gray-500;
+    color: $gray-300;
     font-weight: 300;
     margin-top: 8px;
   }
   
   .list-group-item {
+    background-color: $primary;
     padding: 0.3125rem 0;
     border: 0;
     a, span {
       color: $gray-500;
       font-weight: 300;
+      text-decoration: none;
     }
     a {
       @include hover-focus {
-        color: $gray-800;
+        color: $gray-300;
       }
     }
   }

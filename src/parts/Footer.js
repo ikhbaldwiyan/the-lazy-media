@@ -14,52 +14,32 @@ export default function Footer() {
               instantly and memorable.
             </p>
           </div>
-          <div className="col-auto mr-5">
-            <h6 className="mt-2">For Beginners</h6>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">
-                <Button type="link" href="/register">
-                  New Account
-                </Button>
-              </li>
-              <li className="list-group-item">
-                <Button type="link" href="/booking">
-                  Start Booking a Room
-                </Button>
-              </li>
-              <li className="list-group-item">
-                <Button type="link" href="/use-payments">
-                  Use Payments
-                </Button>
-              </li>
-            </ul>
-          </div>
           <div className="col-2 mr-5">
-            <h6 className="mt-2">Explore Us</h6>
+            <h6 className="mt-2 text-gray-300">Explore Us</h6>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
-                <Button type="link" href="/register">
-                  Careers
+                <Button type="link" href="/article">
+                  Articles List
                 </Button>
               </li>
               <li className="list-group-item">
-                <Button type="link" href="/privacy">
+                <Button type="link" href="/">
                   Privacy
                 </Button>
               </li>
               <li className="list-group-item">
-                <Button type="link" href="/terms">
+                <Button type="link" href="/">
                   Terms & Conditions
                 </Button>
               </li>
             </ul>
           </div>
           <div className="col-3">
-            <h6 className="mt-2">Contact Us</h6>
+            <h6 className="mt-2 text-gray-300">Contact Us</h6>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
                 <Button type="link" href="mailto:support@staycation.id" isExternal>
-                  support@staycation.id
+                  support@thelazymedia.com
                 </Button>
               </li>
               <li className="list-group-item">
@@ -68,14 +48,14 @@ export default function Footer() {
                 </Button>
               </li>
               <li className="list-group-item">
-                <span>Staycation, Bandung</span>
+                <span>The Lazy Media, Jakarta</span>
               </li>
             </ul>
           </div>
         </div>
         <div className="row">
           <div className="col text-center copyrights">
-            Copyright 2021 • All rights reserved • Staycation
+            Copyright 2021 • All rights reserved • The Lazy Media
           </div>
         </div>
       </div>

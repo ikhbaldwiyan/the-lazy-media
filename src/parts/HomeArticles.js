@@ -11,6 +11,7 @@ function HomeArticles() {
   const baseUrl = 'https://the-lazy-media-api.vercel.app/api';
 
   useEffect(() => {
+    window.document.title = 'Home'
     axios.get(`${baseUrl}/games?page=1`).then((res) => {
       const data = res.data;
       setArticle(data);
@@ -21,9 +22,9 @@ function HomeArticles() {
     <div className="container">
       <div className="row">
         <div className="col-8">
-          <h4 className="mb-3">Featured Articles</h4>
+          <h3 className="mb-3">Featured Articles</h3>
         </div>
-        <div className="col-4">
+        <div className="col-4 mt-2">
           <Link to="/article" style={{textDecoration: 'none'}}>
             <h5 className="more-article">See more articles</h5>
           </Link>
@@ -52,6 +53,7 @@ function HomeArticles() {
                         type="link"
                         className="strecthed-link d-block text-white"
                         href={`detail/${item.key}`}
+                        style={{textDecoration: 'none'}}
                       >
                         <h6>{item.title}</h6>
                       </Button>

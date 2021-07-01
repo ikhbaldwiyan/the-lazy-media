@@ -121,7 +121,7 @@ section {
   .tag-article {
     z-index: 3;
     font-size: 0.875rem;
-    background-color: $primary;
+    background-color: $purple;
     padding: 0.25rem 1.5rem;
     position: absolute;
     top: 20; right:20;
@@ -213,6 +213,9 @@ section {
 .more-article {
   color : $gray-600;
   text-align: right;
+  &:hover {
+    color: $primary;
+  }
 }
 
 .img-cover {

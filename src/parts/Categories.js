@@ -6,7 +6,7 @@ import SkeletonCategory from 'components/Skeleton/SkeletonCategory';
 function Categories({data, title}) {
   return (
     <div className="container mt-4 mb-4">
-      <h4 className="mb-3 font-weight-medium">{title}</h4>
+      <h3 className="mb-3 font-weight-medium">{title}</h3>
       {data && data.length ? (
         <Fade bottom>
           <div className="container-grid">
@@ -27,6 +27,7 @@ function Categories({data, title}) {
                         type="link"
                         href={`/detail/${item.key}`}
                         className="strecthed-link d-block text-gray-800"
+                        style={{textDecoration: 'none'}}
                       >
                         <h5 className="h4">{item.title}</h5>
                       </Button>

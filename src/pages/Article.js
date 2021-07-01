@@ -1,22 +1,31 @@
-import React, { Component } from "react";
-import articleList from "json/articleList.json";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import Header from "parts/Header";
 import Blog from "parts/article/Blog";
 
-export default class Article extends Component {
-  componentDidMount() {
+function Article(props) {
+  const [article, setArticle] = useState([]);
+
+  useEffect(() => {
     window.document.title = "Article";
-  }
-  render() {
-    return (
-      <>
-        <Header {...this.props} />
+    axios.get('https://the-lazy-media-api.vercel.app/api/search').then((res) => {
+      const data = res.data;
+      setArticle(data)
+    });
+  }, [article]);
+
+  return (
+    <>
+      <Header {...props} />
+      <div className="container">
         <div className="container mb-4">
-          <h2 className="text-gray-700">Latest Article</h2>
+          <h3>Latest Article</h3>
         </div>
-        <Blog data={articleList.article} />
-      </>
-    );
-  }
+        <Blog data={article} />
+      </div>
+    </>
+  );
 }
+
+export default Article;

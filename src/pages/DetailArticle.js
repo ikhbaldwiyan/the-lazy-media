@@ -4,10 +4,10 @@ import ReactHtmlParser from "react-html-parser";
 
 import MainLayout from 'components/layout/MainLayout';
 import PageTitle from 'parts/detail/PageTitle';
+import formatDescription from 'utils/formatDescription';
 
 function DetailArticle(props) {
   const [detail, setDetail] = useState({});
-  const [loading, setLoading] = useState(true);
   const slug = window.location.pathname;
 
   useEffect(async () => {
@@ -17,9 +17,6 @@ function DetailArticle(props) {
         const data = res.data.results;
         setDetail(data);
       });
-      setTimeout(() => {
-        setLoading(false)
-      }, 500)
   }, [slug]);
 
   const breadcrumb = [
@@ -28,25 +25,6 @@ function DetailArticle(props) {
     { pageTitle: detail.categories && detail.categories[1] , pageHref: "" },
   ];
 
-  let description = [];
-
-  if(detail.content) {
-    for (let i = 0; i < detail.content.length; i++) {
-      const index = detail.content[i]
-      if (index.includes('https://thelazy.media') || index.includes('http://thelazy.media') ) {
-        const img = `<img class="img-cover" src=${index} /> <br /> <br /> `
-        description.push(img);
-      } else if(index.includes('https://www.youtube.com/')) {
-        const yt = `<iframe width="100%" height="400"src="${index}"></iframe> <br /> <br />`
-        description.push(yt);
-      } else {
-        let desc = index;
-        desc += ' <br> <br> ';
-        description.push(desc);
-      }
-    }
-  }
-  
   return (
     <MainLayout title={detail.title} {...props}>
       <PageTitle breadcrumb={breadcrumb} data={detail} />
@@ -66,7 +44,7 @@ function DetailArticle(props) {
         </div>
         <div className="row mt-2">
           <div className="col-8">
-            <p>{ReactHtmlParser(description)}</p>
+            <p>{ReactHtmlParser(formatDescription(detail.content))}</p>
           </div>
             {/* <Related categories={dataRelated} setLoading={setLoading} /> */}
         </div>

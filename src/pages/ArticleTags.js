@@ -5,37 +5,29 @@ import Header from 'parts/Header';
 import Blog from 'parts/article/Blog';
 import Categories from 'parts/Categories';
 
-function Article(props) {
-  const [article, setArticle] = useState([]);
+function ArticleTags(props) {
+  const [article, setArticle] = useState([])
 
   useEffect(() => {
-    window.document.title = 'Article';
-    axios.get('https://the-lazy-media-api.vercel.app/api/search')
+    axios.get(`https://the-lazy-media-api.vercel.app/api/${props.tags}?page=1`)
       .then((res) => {
         const data = res.data;
         setArticle(data);
       });
-  }, [article]);
+  }, [props.tags]);
 
-  return window.location.pathname !== '/article' ? (
-    <div className="mt-3">
-      <div className="container mb-4">
-        <h3>Latest Article</h3>
-      </div>
-      <Blog data={article} />
-    </div>
-  ) : (
+  return (
     <>
       <Header {...props} />
       <div className="container">
         <div className="container mb-4">
-          <h3>Latest Article</h3>
+          <h3>{props.title} Article</h3>
         </div>
         <Categories data={article} />
         <Blog data={article} />
       </div>
     </>
-  );
+  )
 }
 
-export default Article;
+export default ArticleTags

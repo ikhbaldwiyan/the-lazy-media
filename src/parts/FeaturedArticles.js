@@ -6,13 +6,13 @@ import Fade from 'react-reveal/Fade';
 import Button from 'elements/Button';
 import SkeletonHome from 'components/Skeleton/SkeletonHome';
 
-function HomeArticles() {
+function FeaturedArticles() {
   const [article, setArticle] = useState([]);
   const baseUrl = 'https://the-lazy-media-api.vercel.app/api';
 
   useEffect(() => {
     window.document.title = 'Home'
-    axios.get(`${baseUrl}/games?page=1`).then((res) => {
+    axios.get(`${baseUrl}/search?search=te`).then((res) => {
       const data = res.data;
       setArticle(data);
     });
@@ -76,4 +76,4 @@ function HomeArticles() {
   );
 }
 
-export default HomeArticles;
+export default FeaturedArticles;

@@ -9,9 +9,9 @@ export default function Footer() {
         <div className="row">
           <div className="col-auto" style={{width: 350}}>
             <IconText />
-            <p className="brand-tagline">
-              We kaboom your beauty holiday <br/>
-              instantly and memorable.
+            <p className="brand-tagline ml-1">
+              The Lazy Media is your games, technology, entertainment, and gadgets website. <br />
+              We provide you with the latest breaking news and videos straight from our content creators.
             </p>
           </div>
           <div className="col-2 mr-5">
@@ -39,7 +39,7 @@ export default function Footer() {
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
                 <Button type="link" href="mailto:support@staycation.id" isExternal>
-                  support@thelazymedia.com
+                  business@thelazy.media
                 </Button>
               </li>
               <li className="list-group-item">

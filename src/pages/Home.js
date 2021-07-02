@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from 'parts/Header';
-import HomeArticles from 'parts/HomeArticles';
 import Article from 'pages/Article'
+import FeaturedArticles from 'parts/FeaturedArticles';
 import HomeCategories from 'parts/HomeCategories';
 import Footer from 'parts/Footer';
 
@@ -10,7 +10,7 @@ function Home(props) {
     <div>
       <Header {...props} />
       <div className="container">
-        <HomeArticles />
+        <FeaturedArticles />
         <HomeCategories />
         <Article {...props} />
       </div>

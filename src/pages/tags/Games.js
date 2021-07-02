@@ -1,5 +1,5 @@
-import React from 'react'
-import ArticleTags from './ArticleTags'
+import React from 'react';
+import ArticleTags from 'pages/ArticleTags';
 
 function Games(props) {
   return (

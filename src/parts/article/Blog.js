@@ -28,7 +28,11 @@ export default function Blog({ data, loading }) {
             </Link>
             <span className="text-gray-500">
               <img src={IconDate} width={18} className="ml-1 mb-1" alt="date" />{" "}
-              <span className="text-gray-700">{article.author}</span> |  {article.time}
+              <span className="text-gray-700">
+                {article.author === 'Aldy Wayong'
+                  ? 'Ikhbal Dwiyantoro'
+                  : article.author}
+              </span> | {article.time}
             </span>
             <p className="mt-3">
               {ReactHtmlParser(article.desc)}

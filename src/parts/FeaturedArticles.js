@@ -11,7 +11,6 @@ function FeaturedArticles() {
   const baseUrl = 'https://the-lazy-media-api.vercel.app/api';
 
   useEffect(() => {
-    window.document.title = 'Home'
     axios.get(`${baseUrl}/search?search=te`).then((res) => {
       const data = res.data;
       setArticle(data);

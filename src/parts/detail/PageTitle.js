@@ -4,23 +4,21 @@ import Breadcrumb from 'elements/Breadcrumb';
 
 export default function PageTitle({data, breadcrumb}) {
   return (
-    <section className="container spacing-sm">
-      <Fade bottom>
-        <div className="row align-items">
-          <div className="col">
-            <Breadcrumb data={breadcrumb} />
-          </div>
-          <div className="col-auto text-center">
-            <h1 className="h2">{data.name}</h1>
-            <span className="text-gray-400">
-              {data.city}, {data.country}
+    <Fade>
+      <div className="row align-items">
+        <div className="col-12">
+          <Breadcrumb data={breadcrumb} className="mr-3" />
+        </div>
+        <div className="container">
+          <div className="col-8 text-left">
+            <h1 className="h3">{data.title}</h1>
+            <span className="text-gray-500">
+              <span className="text-gray-600">{data.author}</span> - {data.date}
             </span>
           </div>
-          <div className="col"></div>
         </div>
-      </Fade>
-    </section>
-      
-    
+        <div className="col"></div>
+      </div>
+    </Fade>
   )
 }

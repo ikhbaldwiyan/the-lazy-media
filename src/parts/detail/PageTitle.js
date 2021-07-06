@@ -2,7 +2,13 @@ import React from 'react'
 import Fade from 'react-reveal/Fade';
 import Breadcrumb from 'elements/Breadcrumb';
 
-export default function PageTitle({data, breadcrumb}) {
+export default function PageTitle({data}) {
+  const breadcrumb = [
+    { pageTitle: "Article", pageHref: "/article" },
+    { pageTitle: data.categories && data.categories[0] , pageHref: "" },
+    { pageTitle: data.categories && data.categories[1] , pageHref: "" },
+  ];
+
   return (
     <Fade>
       <div className="row align-items">

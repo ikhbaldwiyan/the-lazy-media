@@ -11,7 +11,7 @@ export default function Blog({ data, loading }) {
   const looping = window.location.pathname !== '/' ? '4,8' : '0,4';
 
   return data && data.length && !loading ? data.slice(parseInt(looping)).map((article, idx) => (
-    <section className="container">
+    <section className="container" key={idx}>
       <div className="container-grid sm">
         <Fade>
           <div className="item column-3 mr-3">

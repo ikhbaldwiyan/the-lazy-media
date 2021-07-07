@@ -30,6 +30,9 @@ function Related({ categories, setLoading }) {
     } else if (category === 'tech' || category === 'tech recommendations' || category === 'setup' || category === 'tech news' || category === 'tech review') {
       setCategory('')
       setPath('tech')
+    } else {
+      setCategory('') 
+      setPath('tech/news')
     }
   }, [category])
 
@@ -40,7 +43,7 @@ function Related({ categories, setLoading }) {
         {related && related.length ? related.slice(2).map((item, idx) => (
           item.key !== window.location.pathname.slice(8) &&
           <div className="item column-3 row-1 mt-3">
-            <Fade bottom>
+            <Fade>
               <div className="card">
                 <figure className="img-wrapper" style={{ height: 180 }}>
                   <img

@@ -63,7 +63,9 @@ function DetailArticle(props) {
             </div>
           </div>
           <div className="col-4">
-            <Sidebar popular={dataRelated} setLoading={setLoading} />
+            <div className="sticky">
+              <Sidebar popular={dataRelated} setLoading={setLoading} />
+            </div>
           </div>
           <div className="container">
             <Related categories={dataRelated} setLoading={setLoading} />

@@ -16,10 +16,14 @@ export default function PageTitle({data}) {
           <Breadcrumb data={breadcrumb} className="mr-3" />
         </div>
         <div className="container">
-          <div className="col-8 text-left">
+          <div className="col-12 text-left">
             <h1 className="h3">{data.title}</h1>
             <span className="text-gray-500">
-              <span className="text-gray-600">{data.author}</span> - {data.date}
+              <span className="text-gray-600">
+                {data.author === 'Aldy Wayong'
+                  ? 'Ikhbal Dwiyantoro'
+                  : data.author}
+              </span> - {data.date}
             </span>
           </div>
         </div>

@@ -6,26 +6,32 @@ import SkeletonRelated from 'components/Skeleton/SkeletonRelated';
 
 function Related({ categories, setLoading }) {
   const [related, setRelated] = useState([])
+  const [category, setCategory] = useState(categories);
+  const [path, setPath] = useState('games/')
   const baseUrl = "https://the-lazy-media-api.vercel.app/api/";
+  const api = `${baseUrl}${path}${category}/?page=1`
 
   useEffect(() => {
-    axios.get(`${baseUrl}games/${tag}/?page=2`).then(res => { 
+    axios.get(api).then(res => { 
       const data = res.data;
       setRelated(data)
     });
   });
 
-  let tag = categories 
-  console.log(tag)
-  if (tag === 'game news') {
-    tag = 'news'
-  } else if(tag === 'esports') {
-    tag = 'e-sport'
-  } else if(tag === 'console') {
-    tag = 'console-game'
-  } else if (tag === 'gadget news') {
-    tag = 'pc'
-  }
+  useEffect(() => {
+    if (category === 'game news') {
+      setCategory('news')
+    } else if(category === 'esports') {
+      setCategory('e-sport')
+    } else if(category === 'console') {
+      setCategory('console-game')
+    } else if (category === 'gadget news' && category === 'tech review') {
+      setCategory('pc')
+    } else if (category === 'tech' || category === 'tech recommendations' || category === 'setup' || category === 'tech news' || category === 'tech review') {
+      setCategory('')
+      setPath('tech')
+    }
+  }, [category])
 
   return (
     <section className="container">
@@ -34,7 +40,6 @@ function Related({ categories, setLoading }) {
         {related && related.length ? related.slice(2).map((item, idx) => (
           item.key !== window.location.pathname.slice(8) &&
           <div className="item column-3 row-1 mt-3">
-            {console.log(window.location.pathname.slice(8))}
             <Fade bottom>
               <div className="card">
                 <figure className="img-wrapper" style={{ height: 180 }}>

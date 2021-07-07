@@ -7,6 +7,7 @@ import PageTitle from 'parts/detail/PageTitle';
 import formatDescription from 'utils/formatDescription';
 import SkeletonDetail from 'components/Skeleton/SkeletonDetail';
 import Related from 'parts/Related';
+import Sidebar from 'parts/detail/Sidebar';
 
 function DetailArticle(props) {
   const [detail, setDetail] = useState({});
@@ -37,30 +38,37 @@ function DetailArticle(props) {
             <SkeletonDetail />
           </div>
         </div> :
-        <>
-          <PageTitle data={detail} />
-          <div className="container">
-            <div className="container-grid sm mt-3">
-              <div className="item column-8">
-                <div className="card">
-                  <figure className="img-wrapper">
-                    <img
-                      className="img-cover"
-                      src={detail.thumb ?? 'https://i.stack.imgur.com/y9DpT.jpg'}
-                      alt={detail.title}
-                    />
-                  </figure>
+        <div className="row">
+          <div className="col-8">
+            <PageTitle data={detail} />
+            <div className="container">
+              <div className="container-grid sm mt-3">
+                <div className="item column-12">
+                  <div className="card">
+                    <figure className="img-wrapper">
+                      <img
+                        className="img-cover"
+                        src={detail.thumb ?? 'https://i.stack.imgur.com/y9DpT.jpg'}
+                        alt={detail.title}
+                      />
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div className="row mt-2">
+                <div className="col">
+                  <p>{ReactHtmlParser(formatDescription(detail.content))}</p>
                 </div>
               </div>
             </div>
-            <div className="row mt-2">
-              <div className="col-8">
-                <p>{ReactHtmlParser(formatDescription(detail.content))}</p>
-              </div>
-              <Related categories={dataRelated} setLoading={setLoading} />
-            </div>
           </div>
-        </>
+          <div className="col-4">
+            <Sidebar popular={dataRelated} setLoading={setLoading} />
+          </div>
+          <div className="container">
+            <Related categories={dataRelated} setLoading={setLoading} />
+          </div>
+        </div>
       }
     </MainLayout>
   )

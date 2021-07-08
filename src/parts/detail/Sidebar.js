@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 import Button from 'elements/Button';
+import SkeletonSidebar from 'components/Skeleton/SkeletonSidebar';
 
 function Sidebar({popular, setLoading}) {
   const [sidebar, setSidebar] = useState([]);
@@ -19,67 +20,76 @@ function Sidebar({popular, setLoading}) {
       <div className="container row mt-2">
         <h4>Most Popular</h4>
       </div>
-      <div className="container-grid mt-3">
-        {sidebar.slice(0, 4).map((item, idx) => (
-          <div className="item column-6 row-1" key={idx}>
-            <Fade bottom>
-              <div className="card">
-                <div className="tag-article">{item.tag}</div>
-                <figure className="img-article">
-                  <img
-                    src={item.thumb}
-                    alt={item.title}
-                    className="img-cover"
-                  />
-                </figure>
-                <div className="meta-wrapper">
-                  <Button
-                    type="link"
-                    href={`/detail/${item.key}`}
-                    className="strecthed-link d-block text-gray-800"
-                    style={{textDecoration: 'none'}}
-                    onClick={() => setLoading(true)}
-                  >
-                    <b className="h6" >{item.title}</b>
-                  </Button>
+      {sidebar && sidebar.length ? (
+        <div className="container-grid mt-3">
+          {sidebar.slice(0, 4).map((item, idx) => (
+            <div className="item column-6 row-1" key={idx}>
+              <Fade bottom>
+                <div className="card">
+                  <div className="tag-article">{item.tag}</div>
+                  <figure className="img-article">
+                    <img
+                      src={item.thumb}
+                      alt={item.title}
+                      className="img-cover"
+                    />
+                  </figure>
+                  <div className="meta-wrapper">
+                    <Button
+                      type="link"
+                      href={`/detail/${item.key}`}
+                      className="strecthed-link d-block text-gray-800"
+                      style={{textDecoration: 'none'}}
+                      onClick={() => setLoading(true)}
+                    >
+                      <b className="h6" >{item.title}</b>
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </Fade>
-          </div>
-        ))}
-      </div>
+              </Fade>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <SkeletonSidebar />
+      ) }
+
       <div className="container row mt-4">
         <h4>Recomended Article</h4>
       </div>
-      <div className="container-grid mt-3">
-        {sidebar.slice(4, 8).map((item, idx) => (
-          <div className="item column-6 row-1" key={idx}>
-            <Fade bottom>
-              <div className="card">
-                <div className="tag-article">{item.tag}</div>
-                <figure className="img-article">
-                  <img
-                    src={item.thumb}
-                    alt={item.title}
-                    className="img-cover"
-                  />
-                </figure>
-                <div className="meta-wrapper">
-                  <Button
-                    type="link"
-                    href={`/detail/${item.key}`}
-                    className="strecthed-link d-block text-gray-800"
-                    style={{textDecoration: 'none'}}
-                    onClick={() => setLoading(true)}
-                  >
-                    <b className="h6" >{item.title}</b>
-                  </Button>
+      {sidebar && sidebar.length ? (
+        <div className="container-grid mt-3">
+          {sidebar.slice(6, 10).map((item, idx) => (
+            <div className="item column-6 row-1" key={idx}>
+              <Fade bottom>
+                <div className="card">
+                  <div className="tag-article">{item.tag}</div>
+                  <figure className="img-article">
+                    <img
+                      src={item.thumb}
+                      alt={item.title}
+                      className="img-cover"
+                    />
+                  </figure>
+                  <div className="meta-wrapper">
+                    <Button
+                      type="link"
+                      href={`/detail/${item.key}`}
+                      className="strecthed-link d-block text-gray-800"
+                      style={{textDecoration: 'none'}}
+                      onClick={() => setLoading(true)}
+                    >
+                      <b className="h6" >{item.title}</b>
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </Fade>
-          </div>
-        ))}
-      </div>
+              </Fade>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <SkeletonSidebar />
+      ) }
     </>
   )
 }

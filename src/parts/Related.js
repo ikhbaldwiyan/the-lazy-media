@@ -25,12 +25,12 @@ function Related({ categories, setLoading }) {
       setCategory('e-sport')
     } else if(category === 'console') {
       setCategory('console-game')
-    } else if (category === 'gadget news' && category === 'tech review') {
+    } else if (category === 'gadget news' || category === 'setup' ) {
       setCategory('pc')
-    } else if (category === 'tech' || category === 'tech recommendations' || category === 'setup' || category === 'tech news' || category === 'tech review') {
+    } else if (category === 'tech' || category === 'tech recommendations' || category === 'tech review') {
       setCategory('')
       setPath('tech')
-    } else {
+    } else if(category.length > '10' || category === 'tech news'){
       setCategory('') 
       setPath('tech/news')
     }

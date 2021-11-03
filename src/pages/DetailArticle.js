@@ -12,6 +12,7 @@ import Sidebar from 'parts/detail/Sidebar';
 function DetailArticle(props) {
   const [detail, setDetail] = useState({});
   const [loading, setLoading] = useState(true);
+  const [dataRelated, setDataRelated] = useState('');
   const slug = window.location.pathname;
 
   useEffect(async () => {
@@ -28,20 +29,26 @@ function DetailArticle(props) {
     }, 1000)
   }, [slug]);
 
-  const dataRelated = detail.categories && detail.categories[1].toLowerCase();
+  useEffect(() => {
+    if (detail.categories && detail.categories[0] !== "Uncategorized") {
+      const dataRelated = detail.categories[0] !== "Uncategorized" ? detail.categories[1].toLowerCase() : 'games';
+      setDataRelated(dataRelated);
+    }
+  }, [dataRelated, detail.categories, slug])
+ 
 
   return (
     <MainLayout title={detail.title} {...props}>
       {loading ?
         <div className="row">
-          <div className="col-8 mt-3">
+          <div className="col-12 col-lg-8 mt-3">
             <SkeletonDetail />
           </div>
         </div> :
         <div className="row">
-          <div className="col-8">
+          <div className="col-12 col-lg-8">
             <PageTitle data={detail} />
-            <div className="container">
+            <div>
               <div className="container-grid sm mt-3">
                 <div className="item column-12">
                   <div className="card">
@@ -57,12 +64,12 @@ function DetailArticle(props) {
               </div>
               <div className="row mt-2">
                 <div className="col">
-                  <p>{ReactHtmlParser(formatDescription(detail.content))}</p>
+                  <p>{(ReactHtmlParser(formatDescription(detail.content)))}</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-4">
+          <div className="col-12 col-lg-4">
             <div className="sticky">
               <Sidebar popular={dataRelated} setLoading={setLoading} />
             </div>

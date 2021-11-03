@@ -8,8 +8,8 @@ function Home(props) {
   return (
     <MainLayout title="Home" {...props}>
       <FeaturedArticles />
-      <HomeCategories />
       <Article {...props} />
+      <HomeCategories />
     </MainLayout>
   );
 }

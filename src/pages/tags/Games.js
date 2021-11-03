@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ArticleTags from 'pages/ArticleTags';
 
 function Games(props) {
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, []);
+
   return (
-    <div>
-      <ArticleTags tags="games" title="Games" {...props} />
-    </div>
+    <ArticleTags tags="games" title="Games" {...props} />
   )
 }
 

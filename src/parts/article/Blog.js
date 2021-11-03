@@ -11,13 +11,13 @@ export default function Blog({ data, loading }) {
   const looping = window.location.pathname !== '/' ? '4,8' : '0,4';
 
   return data && data.length && !loading ? data.slice(parseInt(looping)).map((article, idx) => (
-    <section className="container" key={idx}>
-      <div className="container-grid sm">
-        <Fade>
+    <section key={idx}>
+      <div className="container-grid">
+        <Fade bottom>
           <div className="item column-3 mr-3">
-            <div className="card h-100">
+            <div className="card card-featured">
               <div className="tag-article">{article.tag}</div>
-              <figure className="img-article">
+              <figure className="img-wrapper">
                 <img className="img-cover" src={article.thumb} alt={idx} />
               </figure>
             </div>

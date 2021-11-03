@@ -12,20 +12,16 @@ export default function PageTitle({data}) {
   return (
     <Fade>
       <div className="row align-items">
-        <div className="col-12">
-          <Breadcrumb data={breadcrumb} className="mr-3" />
-        </div>
-        <div className="container">
-          <div className="col-12 text-left">
-            <h1 className="h3">{data.title}</h1>
-            <span className="text-gray-500">
-              <span className="text-gray-600">
-                {data.author === 'Aldy Wayong'
-                  ? 'Ikhbal Dwiyantoro'
-                  : data.author}
-              </span> - {data.date}
-            </span>
-          </div>
+        <Breadcrumb data={breadcrumb} className="mr-3" />
+        <div className="col-12 text-left">
+          <h1 className="h3">{data.title}</h1>
+          <span className="text-gray-500">
+            <span className="text-gray-600">
+              {data.author === 'Aldy Wayong'
+                ? 'Ikhbal Dwiyantoro'
+                : data.author}
+            </span> - {data.date}
+          </span>
         </div>
         <div className="col"></div>
       </div>

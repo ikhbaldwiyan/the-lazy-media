@@ -14,32 +14,32 @@ export default function Footer() {
               We provide you with the latest breaking news and videos straight from our content creators.
             </p>
           </div>
-          <div className="col-2 mr-5">
+          <div className="col-4 col-lg-2 mr-5">
             <h6 className="mt-2 text-gray-300">Explore Us</h6>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
                 <Button type="link" href="/article">
-                  Articles List
+                  Articles
                 </Button>
               </li>
               <li className="list-group-item">
-                <Button type="link" href="/">
-                  Privacy
+                <Button type="link" href="/games">
+                  Games
                 </Button>
               </li>
               <li className="list-group-item">
-                <Button type="link" href="/">
-                  Terms & Conditions
+                <Button type="link" href="/tech">
+                  Tech News
                 </Button>
               </li>
             </ul>
           </div>
-          <div className="col-3">
+          <div className="col-6 col-lg-3">
             <h6 className="mt-2 text-gray-300">Contact Us</h6>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
                 <Button type="link" href="mailto:support@staycation.id" isExternal>
-                  business@thelazy.media
+                  buisnes@thelazy.media
                 </Button>
               </li>
               <li className="list-group-item">
@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
         <div className="row">
           <div className="col text-center copyrights">
-            Copyright 2021 • All rights reserved • The Lazy Media
+            Copyright 2021 • All rights reserved • The Lazy Media - @Inzoid
           </div>
         </div>
       </div>

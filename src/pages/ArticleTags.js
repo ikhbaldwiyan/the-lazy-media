@@ -18,10 +18,9 @@ function ArticleTags(props) {
 
   return (
     <MainLayout {...props}>
-      <div className="container mb-4">
-        <h3>{props.title} Article</h3>
-      </div>
+      <h3>Latest {props.title} Article</h3>
       <Categories data={article} />
+      <h3 className="mb-4">{props.title} List</h3>
       <Blog data={article} />
     </MainLayout>
   );

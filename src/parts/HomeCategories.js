@@ -14,9 +14,7 @@ function HomeCategories() {
   }, [news]);
 
   return (
-    <div>
-      <Categories data={news} title="Lazy News" />
-    </div>
+    <Categories data={news} title="Lazy News" />
   )
 }
 

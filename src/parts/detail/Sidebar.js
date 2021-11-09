@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 import Button from 'elements/Button';
+import { clearImage } from 'utils/clearImage';
 import SkeletonSidebar from 'components/Skeleton/SkeletonSidebar';
 
 function Sidebar({popular, setLoading}) {
@@ -29,7 +30,7 @@ function Sidebar({popular, setLoading}) {
                   <div className="tag-article">{item.tag}</div>
                   <figure className="img-article">
                     <img
-                      src={item.thumb}
+                      src={clearImage(item.thumb, true)}
                       alt={item.title}
                       className="img-cover"
                     />
@@ -66,7 +67,7 @@ function Sidebar({popular, setLoading}) {
                   <div className="tag-article">{item.tag}</div>
                   <figure className="img-article">
                     <img
-                      src={item.thumb}
+                      src={clearImage(item.thumb, true)}
                       alt={item.title}
                       className="img-cover"
                     />

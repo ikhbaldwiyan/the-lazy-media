@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
+import { RiUser3Fill } from "react-icons/ri";
+import { clearImage } from 'utils/clearImage';
 
 import Button from 'elements/Button';
 import SkeletonHome from 'components/Skeleton/SkeletonHome';
@@ -38,10 +40,9 @@ function FeaturedArticles() {
             >
               <Fade right delay={300 * idx}>
                 <div className="card card-featured">
-                  <div className="tag-article">{item.tag}</div>
                   <figure className="img-wrapper">
                     <img
-                      src={item.thumb}
+                      src={clearImage(item.thumb)}
                       alt={item.title}
                       className="img-cover"
                     />
@@ -56,6 +57,7 @@ function FeaturedArticles() {
                       <h6>{item.title}</h6>
                     </Button>
                     <span className="text-gray-400">
+                      <RiUser3Fill className="mb-1" />{" "}
                       {item.author === 'Aldy Wayong'
                         ? 'Ikhbal Dwiyantoro'
                         : item.author}

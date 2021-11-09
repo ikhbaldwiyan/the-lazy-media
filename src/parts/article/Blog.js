@@ -2,9 +2,10 @@ import React from "react";
 import Fade from "react-reveal/Fade";
 import ReactHtmlParser from "react-html-parser";
 import { Link } from "react-router-dom";
+import { RiUser3Fill } from "react-icons/ri";
+import { clearImage } from "utils/clearImage";
 
 import Button from "elements/Button";
-import IconDate from "assets/images/icons/icon_cities.svg";
 import SkeletonList from "components/Skeleton/SkeletonList";
 
 export default function Blog({ data, loading }) {
@@ -18,7 +19,7 @@ export default function Blog({ data, loading }) {
             <div className="card card-featured">
               <div className="tag-article">{article.tag}</div>
               <figure className="img-wrapper">
-                <img className="img-cover" src={article.thumb} alt={idx} />
+                <img className="img-cover" src={clearImage(article.thumb)} alt={idx} />
               </figure>
             </div>
           </div>
@@ -26,8 +27,8 @@ export default function Blog({ data, loading }) {
             <Link className="text-gray-900" to={`detail/${article.key}`} style={{textDecoration: 'none'}}>
               <h3>{article.title}</h3>
             </Link>
-            <span className="text-gray-500">
-              <img src={IconDate} width={18} className="ml-1 mb-1" alt="date" />{" "}
+            <span className="text-gray-600">
+             <RiUser3Fill className="mb-1" />{" "}
               <span className="text-gray-700">
                 {article.author === 'Aldy Wayong'
                   ? 'Ikhbal Dwiyantoro'

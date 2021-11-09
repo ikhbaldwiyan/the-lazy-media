@@ -1,6 +1,8 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
 import Button from 'elements/Button';
+import { RiUser3Fill } from "react-icons/ri";
+import { clearImage } from 'utils/clearImage';
 import SkeletonCategory from 'components/Skeleton/SkeletonCategory';
 
 function Categories({data, title}) {
@@ -13,10 +15,9 @@ function Categories({data, title}) {
             <div className="item column-3 row-1" key={idx}>
               <Fade right delay={300 * idx}>
                 <div className="card">
-                  <div className="tag-article">{item.tag}</div>
                   <figure className="img-wrapper" style={{ height: 180 }}>
                     <img
-                      src={item.thumb}
+                      src={clearImage(item.thumb)}
                       alt={item.title}
                       className="img-cover"
                     />
@@ -31,6 +32,7 @@ function Categories({data, title}) {
                       <h5 className="h4">{item.title}</h5>
                     </Button>
                     <span className="text-gray-500">
+                      <RiUser3Fill className="mb-1" />{" "}
                       {item.author === 'Aldy Wayong'
                         ? 'Ikhbal Dwiyantoro'
                         : item.author}

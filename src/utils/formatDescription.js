@@ -10,6 +10,8 @@ export default function formatDescription(description) {
       } else if(index.includes('https://www.youtube.com/')) {
         const yt = `<iframe width="100%" height="400"src="${index}"></iframe> <br /> <br />`
         content.push(yt);
+      } else if(index.includes('\n')) {
+        index.slice(0);
       } else {
         let desc = index;
         desc += ' <br> <br> ';

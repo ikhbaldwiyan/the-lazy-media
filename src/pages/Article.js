@@ -23,10 +23,12 @@ function Article(props) {
     </div>
   ) : (
     <MainLayout title="Artikel Terbaru" {...props}>
-      <h3 className="mb-4">Latest Article</h3>
-      <Categories data={article} />
-      <h3 className="mb-4">Article List</h3>
-      <Blog data={article} />
+      <div className="container">
+        <h3 className="mb-4">Latest Article</h3>
+        <Categories data={article} />
+        <h3 className="mb-4">Article List</h3>
+        <Blog data={article} />
+      </div>
     </MainLayout>
   );
 }

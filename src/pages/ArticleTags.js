@@ -18,10 +18,12 @@ function ArticleTags(props) {
 
   return (
     <MainLayout {...props}>
-      <h3>Latest {props.title} Article</h3>
-      <Categories data={article} />
-      <h3 className="mb-4">{props.title} List</h3>
-      <Blog data={article} />
+      <div className="container">
+        <h3>Latest {props.title} Article</h3>
+        <Categories data={article} />
+        <h3 className="mb-4">{props.title} List</h3>
+        <Blog data={article} />
+      </div>
     </MainLayout>
   );
 }

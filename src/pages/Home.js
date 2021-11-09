@@ -7,9 +7,11 @@ import MainLayout from 'components/layout/MainLayout';
 function Home(props) {
   return (
     <MainLayout title="Home" {...props}>
-      <FeaturedArticles />
-      <Article {...props} />
-      <HomeCategories />
+      <div className="container">
+        <FeaturedArticles />
+        <Article {...props} />
+        <HomeCategories />
+      </div>
     </MainLayout>
   );
 }

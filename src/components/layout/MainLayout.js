@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from 'parts/Header';
 import Footer from 'parts/Footer';
+import { isMobile } from 'react-device-detect';
 
 function MainLayout(props) {
   useEffect(() => {
@@ -11,7 +12,7 @@ function MainLayout(props) {
   return (
     <>
       <Header {...props} />
-        <div className="container">
+        <div className={!isMobile && 'container'}>
           {props.children}
         </div>
       <Footer />

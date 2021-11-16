@@ -10,7 +10,7 @@ function Home(props) {
       <div className="container">
         <FeaturedArticles />
         <Article {...props} />
-        <HomeCategories />
+        <HomeCategories theme={props.theme} />
       </div>
     </MainLayout>
   );

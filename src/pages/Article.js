@@ -19,15 +19,15 @@ function Article(props) {
   return window.location.pathname !== '/article' ? (
     <div className="mt-3">
       <h3 className="mb-4">Latest Article</h3>
-      <Blog data={article} />
+      <Blog data={article} theme={props.theme} />
     </div>
   ) : (
     <MainLayout title="Artikel Terbaru" {...props}>
       <div className="container">
         <h3 className="mb-4">Latest Article</h3>
-        <Categories data={article} />
+        <Categories data={article} theme={props.theme} />
         <h3 className="mb-4">Article List</h3>
-        <Blog data={article} />
+        <Blog data={article} theme={props.theme} />
       </div>
     </MainLayout>
   );

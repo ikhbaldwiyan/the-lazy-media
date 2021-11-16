@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Categories from './Categories';
 
-function HomeCategories() {
+function HomeCategories({theme}) {
   const [news, setNews] = useState([]);
   const baseUrl = 'https://the-lazy-media-api.vercel.app/api';
 
@@ -14,7 +14,7 @@ function HomeCategories() {
   }, [news]);
 
   return (
-    <Categories data={news} title="Lazy News" />
+    <Categories data={news} title="Lazy News" theme={theme} />
   )
 }
 

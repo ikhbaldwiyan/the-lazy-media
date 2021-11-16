@@ -40,42 +40,46 @@ function DetailArticle(props) {
   return (
     <MainLayout title={detail.title} {...props}>
       {loading ?
-        <div className="row">
-          <div className="col-12 col-lg-8 mt-3">
-            <SkeletonDetail />
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-lg-8 mt-3">
+              <SkeletonDetail />
+            </div>
           </div>
         </div> :
-        <div className="row">
-          <div className="col-12 col-lg-8">
-            <PageTitle data={detail} />
-            <div>
-              <div className="container-grid sm mt-3">
-                <div className="item column-12">
-                  <div className="card">
-                    <figure className="img-wrapper">
-                      <img
-                        className="img-cover"
-                        src={detail.thumb ?? 'https://i.stack.imgur.com/y9DpT.jpg'}
-                        alt={detail.title}
-                      />
-                    </figure>
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-lg-8">
+              <PageTitle data={detail} theme={props.theme} />
+              <div>
+                <div className="container-grid sm mt-3">
+                  <div className="item column-12">
+                    <div className="card">
+                      <figure className="img-wrapper">
+                        <img
+                          className="img-cover"
+                          src={detail.thumb ?? 'https://i.stack.imgur.com/y9DpT.jpg'}
+                          alt={detail.title}
+                        />
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-2">
+                  <div className="col">
+                    <p>{(ReactHtmlParser(formatDescription(detail.content)))}</p>
                   </div>
                 </div>
               </div>
-              <div className="row mt-2">
-                <div className="col">
-                  <p>{(ReactHtmlParser(formatDescription(detail.content)))}</p>
-                </div>
+            </div>
+            <div className="col-12 col-lg-4">
+              <div className="sticky">
+                <Sidebar popular={dataRelated} setLoading={setLoading} theme={props.theme} />
               </div>
             </div>
-          </div>
-          <div className="col-12 col-lg-4">
-            <div className="sticky">
-              <Sidebar popular={dataRelated} setLoading={setLoading} />
+            <div className="container">
+              <Related categories={dataRelated} setLoading={setLoading} theme={props.theme} />
             </div>
-          </div>
-          <div className="container">
-            <Related categories={dataRelated} setLoading={setLoading} />
           </div>
         </div>
       }

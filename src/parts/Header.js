@@ -1,15 +1,16 @@
 import React from 'react';
 import Button from 'elements/Button';
 import BrandIcon from 'parts/IconText';
+import DarkModeToggle from "react-dark-mode-toggle";
 
 import { AiFillHome } from "react-icons/ai";
 import { RiArticleFill } from "react-icons/ri";
 import { IoGameController } from "react-icons/io5";
 import { GoDeviceDesktop } from "react-icons/go";
 
-export default function Header(props) {
+export default function Header({theme, toggleTheme}) {
   const getNavLinkClass = (path) => {
-    return props.location.pathname === path ? " active" : "";
+    return window.location.pathname === path ? " active" : "";
   };
 
   const iconHome = {marginBottom: 4};
@@ -19,6 +20,12 @@ export default function Header(props) {
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light">
           <BrandIcon />
+          <DarkModeToggle 
+            className="ml-3"
+            onChange={toggleTheme}
+            checked={theme === 'dark'}
+            size={48}
+          />
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav ml-auto">
               <li className={`nav-item${getNavLinkClass("/")}`}>

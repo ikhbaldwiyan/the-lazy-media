@@ -5,7 +5,7 @@ import { RiUser3Fill } from "react-icons/ri";
 import { clearImage } from 'utils/clearImage';
 import SkeletonCategory from 'components/Skeleton/SkeletonCategory';
 
-function Categories({data, title}) {
+function Categories({data, title, theme}) {
   return (
     <div className="mt-4 mb-4">
       <h3 className="mb-3 font-weight-medium">{title}</h3>
@@ -29,9 +29,9 @@ function Categories({data, title}) {
                       className="strecthed-link d-block text-gray-800"
                       style={{textDecoration: 'none'}}
                     >
-                      <h5 className="h4">{item.title}</h5>
+                      <h5 className={theme === 'light' ? "text-gray-900" : 'text-gray-400'}>{item.title}</h5>
                     </Button>
-                    <span className="text-gray-500">
+                    <span className={theme === 'light' ? "text-gray-600" : 'text-gray-400'}>
                       <RiUser3Fill className="mb-1" />{" "}
                       {item.author === 'Aldy Wayong'
                         ? 'Ikhbal Dwiyantoro'

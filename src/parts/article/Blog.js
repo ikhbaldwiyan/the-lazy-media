@@ -8,7 +8,7 @@ import { clearImage } from "utils/clearImage";
 import Button from "elements/Button";
 import SkeletonList from "components/Skeleton/SkeletonList";
 
-export default function Blog({ data, loading }) {
+export default function Blog({ data, loading, theme }) {
   const looping = window.location.pathname !== '/' ? '4,8' : '0,4';
 
   return data && data.length && !loading ? data.slice(parseInt(looping)).map((article, idx) => (
@@ -24,18 +24,18 @@ export default function Blog({ data, loading }) {
             </div>
           </div>
           <div className="item column-8">
-            <Link className="text-gray-900" to={`detail/${article.key}`} style={{textDecoration: 'none'}}>
+            <Link className={theme === 'light' ? "text-gray-900" : 'text-gray-400'} to={`detail/${article.key}`} style={{textDecoration: 'none'}}>
               <h3>{article.title}</h3>
             </Link>
             <span className="text-gray-600">
-             <RiUser3Fill className="mb-1" />{" "}
-              <span className="text-gray-700">
+              <span className={theme === 'light' ? "text-gray-700" : 'text-gray-400'}>
+                <RiUser3Fill size={14} className="mb-1" />{" "}
                 {article.author === 'Aldy Wayong'
                   ? 'Ikhbal Dwiyantoro'
                   : article.author}
               </span> | {article.time}
             </span>
-            <p className="mt-3">
+            <p className={theme === 'light' ? "text-gray-900 mt-3" : 'text-gray-500 mt-3'}>
               {ReactHtmlParser(article.desc)}
             </p>
             <Button type="link" href={`detail/${article.key}`} className="btn mt-3 text-white" style={{backgroundColor: '#802BB1'}}>

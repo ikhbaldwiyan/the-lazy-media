@@ -20,9 +20,9 @@ function ArticleTags(props) {
     <MainLayout {...props}>
       <div className="container">
         <h3>Latest {props.title} Article</h3>
-        <Categories data={article} />
+        <Categories data={article} theme={props.theme} />
         <h3 className="mb-4">{props.title} List</h3>
-        <Blog data={article} />
+        <Blog data={article} theme={props.theme} />
       </div>
     </MainLayout>
   );

@@ -5,7 +5,7 @@ import Button from 'elements/Button';
 import { clearImage } from 'utils/clearImage';
 import SkeletonSidebar from 'components/Skeleton/SkeletonSidebar';
 
-function Sidebar({popular, setLoading}) {
+function Sidebar({popular, setLoading, theme}) {
   const [sidebar, setSidebar] = useState([]);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function Sidebar({popular, setLoading}) {
                       style={{textDecoration: 'none'}}
                       onClick={() => setLoading(true)}
                     >
-                      <b className="h6" >{item.title}</b>
+                      <b className={theme === 'light' ? "h6 text-gray-700" : 'h6 text-gray-400'} >{item.title}</b>
                     </Button>
                   </div>
                 </div>
@@ -80,7 +80,7 @@ function Sidebar({popular, setLoading}) {
                       style={{textDecoration: 'none'}}
                       onClick={() => setLoading(true)}
                     >
-                      <b className="h6" >{item.title}</b>
+                      <b className={theme === 'light' ? "h6 text-gray-700" : 'h6 text-gray-400'} >{item.title}</b>
                     </Button>
                   </div>
                 </div>

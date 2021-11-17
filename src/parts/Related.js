@@ -8,40 +8,34 @@ import SkeletonRelated from 'components/Skeleton/SkeletonRelated';
 function Related({ categories, setLoading, theme }) {
   const [related, setRelated] = useState([])
   const [category, setCategory] = useState(categories);
-  const [path, setPath] = useState('games')
-  
+  const [path, setPath] = useState('games/')
   const baseUrl = "https://the-lazy-media-api.vercel.app/api/";
-  let api = `${baseUrl}${path}${category}/?page=1`
+  const api = `${baseUrl}${path}${category}/?page=1`
 
   useEffect(() => {
     axios.get(api).then(res => { 
       const data = res.data;
       setRelated(data)
     });
-  }, [api, category, path]);
+  });
 
   useEffect(() => {
-    if (category === 'game news' || 'reviews') {
+    if (category === 'game news') {
       setCategory('news')
-      setPath('games/');
     } else if(category === 'esports') {
       setCategory('e-sport')
-      setPath('games/');
     } else if(category === 'console') {
       setCategory('console-game')
-    } else if (category === 'gadget news' || category === 'setup' || category === 'gadgets' ) {
+    } else if (category === 'gadget news' || category === 'setup' ) {
       setCategory('pc')
-      setPath('games/')
     } else if (category === 'tech' || category === 'tech recommendations' || category === 'tech review') {
-      setPath('tech')
       setCategory('')
+      setPath('tech')
     } else if(category.length > '10' || category === 'tech news'){
-      setPath('tech/news')
       setCategory('') 
-    } else {
-      api = `${baseUrl}search?search=${categories.slice(0 ,3)}`
-    }
-  }, [category, path])
+      setPath('tech/news')
+    } 
+  }, [category])
 
   return (
     <section className="mt-4">
@@ -74,7 +68,7 @@ function Related({ categories, setLoading, theme }) {
             </Fade>
           </div>
         )) : (
-          <SkeletonRelated />
+          <SkeletonRelated theme={theme} />
         )}
       </div>
     </section>

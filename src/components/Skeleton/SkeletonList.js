@@ -1,9 +1,10 @@
 import React from 'react';
 import Skeleton from 'react-content-loader';
+import { skeletonIsDark } from 'utils/skeletonIsDark';
 
-function SkeletonList() {
+function SkeletonList({theme}) {
   return (
-    <Skeleton speed={2} width={900} height={830}>
+    <Skeleton speed={2} width={900} height={830} backgroundColor={skeletonIsDark(theme, true)} foregroundColor={skeletonIsDark(theme)}>
       <rect x="0" y="0" rx="2" ry="2" width="30%" height="250" />
       <rect x="300" y="10" rx="2" ry="2" width="500" height="18" />
       <rect x="300" y="40" rx="2" ry="2" width="250" height="15" />

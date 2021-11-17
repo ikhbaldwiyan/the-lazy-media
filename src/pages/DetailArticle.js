@@ -43,7 +43,7 @@ function DetailArticle(props) {
         <div className="container">
           <div className="row">
             <div className="col-12 col-lg-8 mt-3">
-              <SkeletonDetail />
+              <SkeletonDetail theme={props.theme} />
             </div>
           </div>
         </div> :

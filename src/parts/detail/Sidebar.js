@@ -52,7 +52,7 @@ function Sidebar({popular, setLoading, theme}) {
           ))}
         </div>
       ) : (
-        <SkeletonSidebar />
+        <SkeletonSidebar theme={theme}/>
       ) }
 
       <div className="container row mt-4">
@@ -89,7 +89,7 @@ function Sidebar({popular, setLoading, theme}) {
           ))}
         </div>
       ) : (
-        <SkeletonSidebar />
+        <SkeletonSidebar theme={theme}/>
       ) }
     </>
   )

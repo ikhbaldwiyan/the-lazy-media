@@ -44,7 +44,7 @@ function Categories({data, title, theme}) {
           ))}
         </div>
       ) : (
-        <SkeletonCategory />
+        <SkeletonCategory theme={theme} />
       )}
     </div>
   );

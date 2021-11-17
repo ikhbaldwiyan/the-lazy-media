@@ -8,7 +8,7 @@ import { clearImage } from 'utils/clearImage';
 import Button from 'elements/Button';
 import SkeletonHome from 'components/Skeleton/SkeletonHome';
 
-function FeaturedArticles() {
+function FeaturedArticles({theme}) {
   const [article, setArticle] = useState([]);
   const baseUrl = 'https://the-lazy-media-api.vercel.app/api';
 
@@ -33,7 +33,7 @@ function FeaturedArticles() {
       </div>
       {article && article.length ? (
         <div className="container-grid">
-          {article.slice(0, 5).map((item, idx) => (
+          {article.reverse().slice(0, 5).map((item, idx) => (
             <div
               key={idx}
               className={`item column-4 ${idx === 0 ? 'row-2' : 'row-1'}`}
@@ -69,7 +69,7 @@ function FeaturedArticles() {
           ))}
         </div>
       ) : (
-        <SkeletonHome />
+        <SkeletonHome theme={theme} />
       )}
     </div>
   );

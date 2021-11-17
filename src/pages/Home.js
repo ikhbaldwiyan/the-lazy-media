@@ -8,7 +8,7 @@ function Home(props) {
   return (
     <MainLayout title="Home" {...props}>
       <div className="container">
-        <FeaturedArticles />
+        <FeaturedArticles theme={props.theme}/>
         <Article {...props} />
         <HomeCategories theme={props.theme} />
       </div>

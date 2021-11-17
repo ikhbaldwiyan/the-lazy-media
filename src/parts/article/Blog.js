@@ -47,7 +47,7 @@ export default function Blog({ data, loading, theme }) {
     </section>
   )) : (
     <section>
-      <SkeletonList />
+      <SkeletonList theme={theme} />
     </section>
   );
 }

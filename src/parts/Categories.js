@@ -13,14 +13,15 @@ function Categories({data, title, theme}) {
         <div className="container-grid">
           {data.slice(0, 4).map((item, idx) => (
             <div className="item column-3 row-1" key={idx}>
-              <Fade right delay={300 * idx}>
                 <div className="card">
                   <figure className="img-wrapper" style={{ height: 180 }}>
-                    <img
-                      src={clearImage(item.thumb)}
-                      alt={item.title}
-                      className="img-cover"
-                    />
+                    <Fade up delay={300 * idx}>
+                      <img
+                        src={clearImage(item.thumb)}
+                        alt={item.title}
+                        className="img-cover"
+                      />
+                    </Fade>
                   </figure>
                   <div className="meta-wrapper">
                     <Button
@@ -39,7 +40,6 @@ function Categories({data, title, theme}) {
                     </span>
                   </div>
                 </div>
-              </Fade>
             </div>
           ))}
         </div>

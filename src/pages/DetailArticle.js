@@ -52,19 +52,21 @@ function DetailArticle(props) {
             <div className="col-12 col-lg-8">
               <PageTitle data={detail} theme={props.theme} />
               <div>
-                <div className="container-grid sm mt-3">
-                  <div className="item column-12">
-                    <div className="card">
-                      <figure className="img-wrapper">
-                        <img
-                          className="img-cover"
-                          src={detail.thumb ?? 'https://i.stack.imgur.com/y9DpT.jpg'}
-                          alt={detail.title}
-                        />
-                      </figure>
+                {detail.thumb && (
+                  <div className="container-grid sm mt-3">
+                    <div className="item column-12">
+                      <div className="card">
+                        <figure className="img-wrapper">
+                          <img
+                            className="img-cover"
+                            src={detail.thumb ?? 'https://i.stack.imgur.com/y9DpT.jpg'}
+                            alt={detail.title}
+                          />
+                        </figure>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
                 <div className="row mt-2">
                   <div className="col">
                     <p>{(ReactHtmlParser(formatDescription(detail.content)))}</p>

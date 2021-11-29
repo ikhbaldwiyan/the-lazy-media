@@ -38,31 +38,33 @@ function FeaturedArticles({theme}) {
               key={idx}
               className={`item column-4 ${idx === 0 ? 'row-2' : 'row-1'}`}
             >
-              <Fade right delay={300 * idx}>
+              <Fade up delay={300 * idx}>
                 <div className="card card-featured">
-                  <figure className="img-wrapper">
-                    <img
-                      src={clearImage(item.thumb)}
-                      alt={item.title}
-                      className="img-cover"
-                    />
-                  </figure>
-                  <div className="meta-wrapper">
-                    <Button
-                      type="link"
-                      className="strecthed-link d-block text-white"
-                      href={`detail/${item.key}`}
-                      style={{textDecoration: 'none'}}
-                    >
-                      <h6>{item.title}</h6>
-                    </Button>
-                    <span className="text-gray-400">
-                      <RiUser3Fill className="mb-1" />{" "}
-                      {item.author === 'Aldy Wayong'
-                        ? 'Ikhbal Dwiyantoro'
-                        : item.author}
-                    </span>
-                  </div>
+                  <Link to={`detail/${item.key}`}>
+                      <figure className="img-wrapper">
+                        <img
+                          src={clearImage(item.thumb)}
+                          alt={item.title}
+                          className="img-cover"
+                        />
+                      </figure>
+                      <div className="meta-wrapper">
+                        <Button
+                          type="link"
+                          className="strecthed-link d-block text-white"
+                          href={`detail/${item.key}`}
+                          style={{textDecoration: 'none'}}
+                        >
+                          <h6>{item.title}</h6>
+                        </Button>
+                        <span className="text-gray-400">
+                          <RiUser3Fill className="mb-1" />{" "}
+                          {item.author === 'Aldy Wayong'
+                            ? 'Ikhbal Dwiyantoro'
+                            : item.author}
+                        </span>
+                      </div>
+                  </Link>
                 </div>
               </Fade>
             </div>

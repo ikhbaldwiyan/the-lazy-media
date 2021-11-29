@@ -16,12 +16,14 @@ export default function Blog({ data, loading, theme }) {
       <div className="container-grid">
         <Fade bottom>
           <div className="item column-3 mr-3">
-            <div className="card card-featured">
-              <div className="tag-article">{article.tag}</div>
-              <figure className="img-wrapper">
-                <img className="img-cover" src={clearImage(article.thumb)} alt={idx} />
-              </figure>
-            </div>
+            <Link to={`detail/${article.key}`}>
+              <div className="card card-featured">
+                <div className="tag-article">{article.tag}</div>
+                <figure className="img-wrapper">
+                  <img className="img-cover" src={clearImage(article.thumb)} alt={idx} />
+                </figure>
+              </div>
+            </Link>
           </div>
           <div className="item column-8">
             <Link className={theme === 'light' ? "text-gray-900" : 'text-gray-400'} to={`detail/${article.key}`} style={{textDecoration: 'none'}}>

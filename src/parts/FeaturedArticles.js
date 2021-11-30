@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 import { RiUser3Fill } from "react-icons/ri";
 import { clearImage } from 'utils/clearImage';
+import { baseUrl } from 'utils/baseUrl';
 
 import Button from 'elements/Button';
 import SkeletonHome from 'components/Skeleton/SkeletonHome';
 
 function FeaturedArticles({theme}) {
   const [article, setArticle] = useState([]);
-  const baseUrl = 'https://the-lazy-media-api.vercel.app/api';
 
   useEffect(() => {
-    axios.get(`${baseUrl}/search?search=gam`).then((res) => {
+    axios.get(`${baseUrl}/search?search=game`).then((res) => {
       const data = res.data;
       setArticle(data);
     });
@@ -27,7 +27,7 @@ function FeaturedArticles({theme}) {
         </div>
         <div className="col-6">
           <Link to="/article" style={{textDecoration: 'none'}}>
-            <h5 className="more-article mr-2 mt-2">See more</h5>
+            <h5 style={{color: theme === 'dark' && '#ced4da'}} className="more-article mr-2 mt-2">See more</h5>
           </Link>
         </div>
       </div>

@@ -8,6 +8,7 @@ import formatDescription from 'utils/formatDescription';
 import SkeletonDetail from 'components/Skeleton/SkeletonDetail';
 import Related from 'parts/Related';
 import Sidebar from 'parts/detail/Sidebar';
+import { baseUrl } from 'utils/baseUrl';
 
 function DetailArticle(props) {
   const [detail, setDetail] = useState({});
@@ -17,11 +18,17 @@ function DetailArticle(props) {
 
   useEffect(async () => {
     window.scrollTo(0,0);
-    await axios.get(`https://the-lazy-media-api.vercel.app/api${slug}`)
-      .then((res) => {
+
+    async function getArticle() {
+      try {
+        const res = await axios.get(`${baseUrl}${slug}`);
         const data = res.data.results;
         setDetail(data);
-      });
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    await getArticle();
 
     setLoading(true)
     setTimeout(() => {

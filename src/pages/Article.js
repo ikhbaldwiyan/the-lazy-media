@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { baseUrl } from 'utils/baseUrl';
 
 import Blog from 'parts/article/Blog';
 import Categories from 'parts/Categories';
@@ -9,7 +10,7 @@ function Article(props) {
   const [article, setArticle] = useState([]);
 
   useEffect(() => {
-    axios.get('https://the-lazy-media-api.vercel.app/api/search')
+    axios.get(`${baseUrl}/search`)
       .then((res) => {
         const data = res.data;
         setArticle(data);

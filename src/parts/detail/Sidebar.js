@@ -3,13 +3,14 @@ import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 import Button from 'elements/Button';
 import { clearImage } from 'utils/clearImage';
+import { baseUrl } from 'utils/baseUrl';
 import SkeletonSidebar from 'components/Skeleton/SkeletonSidebar';
 
 function Sidebar({popular, setLoading, theme}) {
   const [sidebar, setSidebar] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://the-lazy-media-api.vercel.app/api/search?search=${popular.slice(0 ,3)}`)
+    axios.get(`${baseUrl}/search?search=${popular.slice(0 ,3)}`)
       .then((res) => {
         const data = res.data;
         setSidebar(data);

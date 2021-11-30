@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { baseUrl } from 'utils/baseUrl';
 import Categories from './Categories';
 
 function HomeCategories({theme}) {
   const [news, setNews] = useState([]);
-  const baseUrl = 'https://the-lazy-media-api.vercel.app/api';
 
   useEffect(() => {
     axios.get(`${baseUrl}/games/news?page=1`).then((res) => {

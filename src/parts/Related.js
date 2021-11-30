@@ -3,14 +3,14 @@ import React, { useState, useEffect } from 'react';
 import Button from "elements/Button";
 import Fade from "react-reveal/Fade";
 import { clearImage } from 'utils/clearImage';
+import { baseUrl } from 'utils/baseUrl';
 import SkeletonRelated from 'components/Skeleton/SkeletonRelated';
 
 function Related({ categories, setLoading, theme }) {
   const [related, setRelated] = useState([])
   const [category, setCategory] = useState(categories);
   const [path, setPath] = useState('games/')
-  const baseUrl = "https://the-lazy-media-api.vercel.app/api/";
-  const api = `${baseUrl}${path}${category}/?page=1`
+  const api = `${baseUrl}/${path}${category}/?page=1`
 
   useEffect(() => {
     axios.get(api).then(res => { 
